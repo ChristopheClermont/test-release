@@ -1,0 +1,37 @@
+name: On Release [Any Event]
+run-name: On Release [Any Event] ${{ github.event.release.tag_name }}
+
+on:
+  release:
+    types:
+      - created
+      - deleted
+      - edited
+      - prereleased
+      - published
+      - released
+      - unpublished
+
+jobs:
+  get-info:
+    name: Get Release Info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Workflow Triggered
+        run: |
+          echo "Action ${{ github.event.action }}"
+
+      - name: Get Release Info
+        run: |
+          echo "Id            ${{ github.event.release.id }}"
+          echo "Name          ${{ github.event.release.tag_name }}"
+          echo "HTML URL      ${{ github.event.release.html_url }}"
+          echo "URL           ${{ github.event.release.url }}"
+          echo "Tarball URL   ${{ github.event.release.tarball_url }}"
+          echo "Zipball URL   ${{ github.event.release.zipball_url }}"
+          echo "Is draft      ${{ github.event.release.draft }}"
+          echo "Is prerelease ${{ github.event.release.prerelease }}"
+          echo "Is published  ${{ github.event.release.published_at }}"
