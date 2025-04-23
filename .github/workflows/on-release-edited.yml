@@ -1,9 +1,9 @@
-name: On Release Created
+name: On Release Edited
 
 on:
   release:
     types:
-      - created
+      - edited
 
 jobs:
   get-info:
@@ -28,3 +28,10 @@ jobs:
           echo "Is draft      ${{ github.event.release.draft }}"
           echo "Is prerelease ${{ github.event.release.prerelease }}"
           echo "Is published  ${{ github.event.release.published_at }}"
+
+      - name: Get Changes
+        run: |
+          echo "Name          ${{ github.event.changes.name }}"
+          echo "Body          ${{ github.event.changes.body }}"
+          echo "Tag Name      ${{ github.event.changes.tag_name }}"
+          echo "Make Latest   ${{ github.event.changes.make_latest }}"

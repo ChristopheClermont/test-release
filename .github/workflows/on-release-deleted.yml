@@ -1,9 +1,9 @@
-name: On Release Created
+name: On Release Deleted
 
 on:
   release:
     types:
-      - created
+      - deleted
 
 jobs:
   get-info:
