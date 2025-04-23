@@ -1,4 +1,5 @@
 name: On Release Published
+run-name: On Release Published ${{ github.event.release.tag_name }}
 
 on:
   release:

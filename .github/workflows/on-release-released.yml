@@ -1,4 +1,5 @@
 name: On Release Realeased
+run-name: On Release Released ${{ github.event.release.tag_name }}
 
 on:
   release:
