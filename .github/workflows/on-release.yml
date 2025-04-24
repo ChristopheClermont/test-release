@@ -20,6 +20,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: GitHub Reference
+        run: |
+          echo "Ref            ${{ github.ref }}"
+          echo "Ref Name       ${{ github.ref_name }}"
+          echo "Ref Type       ${{ github.ref_type }}"
+          echo "Ref SHA        ${{ github.sha }}"
+          echo "Ref Head SHA   ${{ github.head_sha }}"
+          echo "Ref Base SHA   ${{ github.base_sha }}"
+
       - name: Workflow Triggered
         run: |
           echo "Action ${{ github.event.action }}"
